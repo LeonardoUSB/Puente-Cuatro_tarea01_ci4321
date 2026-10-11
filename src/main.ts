@@ -1,10 +1,10 @@
 //import { run as runTriangulo } from './triangulo';
 import { run as runCuadrado }  from './cuadrado';
 //import { run as runHexagono }  from './hexagono';
-//import { run as runCirculo }   from './circulo';
+import { run as runCirculo }   from './circulo';
 
 // Las 4 funciones run(agregar despues)
-const runs = [ runCuadrado];
+const runs = [ runCuadrado, runCirculo];
 
 
 const colores: [number, number, number][] = [
