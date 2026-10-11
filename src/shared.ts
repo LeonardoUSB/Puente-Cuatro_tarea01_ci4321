@@ -14,5 +14,19 @@ export const TRIANGLE = new Float32Array([
    0.7,  -0.6,  0.0,  0, 0, 1, 1, // bottom right: blue
 ]);
 
-export const STRIDE_BYTES = 7 * 4;//4 bytes per float (Float32)
+export const SQUARE = new Float32Array([
+  //  x      y     z
+  -0.7,  -0.7,  0.0,   // 0  esquina inferior-izquierda
+   0.7,  -0.7,  0.0,   // 1  esquina inferior-derecha
+   0.7,   0.7,  0.0,   // 2  esquina superior-derecha
+  -0.7,   0.7,  0.0,   // 3  esquina superior-izquierda
+]);
+
+export const SQUARE_IND = new Uint16Array([
+  0, 1, 2,   // triangulo 1
+  0, 2, 3,   // triangulo 2
+]);
+
+
+export const STRIDE_BYTES = 3 * 4;//4 bytes per float (Float32)
 export const COLOR_OFFSET_BYTES = 3 * 4;
