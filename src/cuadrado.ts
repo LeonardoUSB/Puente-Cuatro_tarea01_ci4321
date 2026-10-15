@@ -44,14 +44,14 @@ function setupState(gl: WebGL2RenderingContext, canvas: HTMLCanvasElement): void
   gl.clearColor(...CLEAR_COLOR);
 }
 
-function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject,color: [number, number, number]): void {
+function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject, color: [number, number, number]): void {
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.bindVertexArray(vao);
   ff.setColor(color)
   ff.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
 }
 
-export function run(canvas: HTMLCanvasElement,color: [number, number, number]): void {
+export function run(canvas: HTMLCanvasElement, color: [number, number, number]): void {
   const gl = getContext(canvas);
   const ff = createFixedFunction(gl, { debug: true });
   ff.disable(LIGHTING); // unlit: the output is the per-vertex color

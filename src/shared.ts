@@ -15,7 +15,7 @@ export const TRIANGLE = new Float32Array([
 ]);
 
 export const SQUARE = new Float32Array([
-  //  x      y     z
+  //x      y     z
   -0.7,  -0.7,  0.0,   // 0  esquina inferior-izquierda
    0.7,  -0.7,  0.0,   // 1  esquina inferior-derecha
    0.7,   0.7,  0.0,   // 2  esquina superior-derecha
@@ -28,7 +28,7 @@ export const SQUARE_IND = new Uint16Array([
 ]);
 
 export const HEXAGON = new Float32Array([
-  // x      y     z
+  //x     y     z
    0.0,  0.0,  0.0, // 0. El centro del abanico
    0.6,  0.0,  0.0, // 1. Vértice 0°
    0.3,  0.52, 0.0, // 2. Vértice 60°
@@ -39,5 +39,5 @@ export const HEXAGON = new Float32Array([
    0.6,  0.0,  0.0  // 7. Vértice 0° (cierra el abanico)
 ]);
 
-export const STRIDE_BYTES = 3 * 4;//4 bytes per float (Float32)
+export const STRIDE_BYTES = 3 * 4; //4 bytes per float (Float32)
 export const COLOR_OFFSET_BYTES = 3 * 4;

@@ -1,5 +1,5 @@
 import { ATTRIB, createFixedFunction, LIGHTING } from './vendor/ff/ff';
-import { CANVAS_SIZE, CLEAR_COLOR, STRIDE_BYTES} from './shared';
+import { CANVAS_SIZE, CLEAR_COLOR, STRIDE_BYTES } from './shared';
 
 
 function segmentacion(segments: number, radius = 1): Float32Array {
@@ -57,14 +57,14 @@ function setupState(gl: WebGL2RenderingContext, canvas: HTMLCanvasElement): void
   gl.clearColor(...CLEAR_COLOR);
 }
 
-function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject,color: [number, number, number], count:number): void {
+function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject, color: [number, number, number], count:number): void {
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.bindVertexArray(vao);
   ff.setColor(color);
   ff.drawArrays(gl.TRIANGLE_FAN, 0, count);
 }
 
-export function run(canvas: HTMLCanvasElement,color: [number, number, number], segmentos=64): void {
+export function run(canvas: HTMLCanvasElement, color: [number, number, number], segmentos=64): void {
   if (segmentos > 64) segmentos = 64;
   if (segmentos < 3) segmentos = 3;
   const gl = getContext(canvas);

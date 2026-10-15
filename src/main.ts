@@ -4,7 +4,7 @@ import { run as runHexagono }  from './hexagono';
 import { run as runCirculo }   from './circulo';
 
 // Las 4 funciones run(agregar despues)
-const runs = [ runTriangulo, runCuadrado, runHexagono, runCirculo];
+const runs = [ runTriangulo, runCuadrado, runHexagono, runCirculo ];
 
 const colores: [number, number, number][] = [
   [1, 0, 0], // Rojo
