@@ -4,7 +4,7 @@ import { run as runCuadrado }  from './cuadrado';
 import { run as runHexagono }  from './hexagono';
 import { run as runCirculo }   from './circulo';
 
-// Las 4 funciones run(agregar despues)
+// Las 4 funciones run
 const runs = [ runTriangulo, runCuadrado, runHexagono, runCirculo ];
 
 const colores: [number, number, number][] = [
@@ -17,7 +17,7 @@ const stage       = document.getElementById('estado')!;
 const botonFigura = document.getElementById('Figura')!;
 const botonColor  = document.getElementById('Color')!;
 
-//Dos contadores modulares
+// Dos contadores modulares
 let idxFigura = 0;
 let idxColor  = 0;
 
