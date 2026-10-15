@@ -1,7 +1,7 @@
 // RGB triangle, FixedFunction (FF) version.
 // FF hides the shaders. Compare with triangle.vanilla.ts, which shows them.
 import { ATTRIB, createFixedFunction, LIGHTING } from './vendor/ff/ff';
-import { CANVAS_SIZE, CLEAR_COLOR, COLOR_OFFSET_BYTES, STRIDE_BYTES, TRIANGLE } from './shared';
+import { CANVAS_SIZE, CLEAR_COLOR, STRIDE_BYTES, TRIANGLE } from './shared';
 
 // Step 1. Get the WebGL2 context.
 function getContext(canvas: HTMLCanvasElement): WebGL2RenderingContext {
@@ -26,8 +26,6 @@ function createVAO(gl: WebGL2RenderingContext, buffer: WebGLBuffer): WebGLVertex
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.enableVertexAttribArray(ATTRIB.POSITION);
   gl.vertexAttribPointer(ATTRIB.POSITION, 3, gl.FLOAT, false, STRIDE_BYTES, 0);
-  gl.enableVertexAttribArray(ATTRIB.COLOR);
-  gl.vertexAttribPointer(ATTRIB.COLOR, 4, gl.FLOAT, false, STRIDE_BYTES, COLOR_OFFSET_BYTES);
   gl.bindVertexArray(null);
   return vao;
 }
@@ -41,18 +39,19 @@ function setupState(gl: WebGL2RenderingContext, canvas: HTMLCanvasElement): void
 }
 
 // Step 6. Draw. ff.drawArrays binds the FF program and uploads its uniforms first.
-function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject): void {
+function draw(gl: WebGL2RenderingContext, ff: ReturnType<typeof createFixedFunction>, vao: WebGLVertexArrayObject, color: [number, number, number]): void {
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.bindVertexArray(vao);
+  ff.setColor(color)
   ff.drawArrays(gl.TRIANGLES, 0, 3);
 }
 
-export function run(canvas: HTMLCanvasElement): void {
+export function run(canvas: HTMLCanvasElement, color: [number, number, number]): void {
   const gl = getContext(canvas);
   const ff = createFixedFunction(gl, { debug: true });
   ff.disable(LIGHTING); // unlit: the output is the per-vertex color
   const buffer = createVertexBuffer(gl, TRIANGLE);
   const vao = createVAO(gl, buffer);
   setupState(gl, canvas);
-  draw(gl, ff, vao);
+  draw(gl, ff, vao, color);
 }

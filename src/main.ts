@@ -1,16 +1,15 @@
-//import { run as runTriangulo } from './triangulo';
+import { run as runTriangulo } from './triangulo';
 import { run as runCuadrado }  from './cuadrado';
-//import { run as runHexagono }  from './hexagono';
+import { run as runHexagono }  from './hexagono';
 import { run as runCirculo }   from './circulo';
 
 // Las 4 funciones run(agregar despues)
-const runs = [ runCuadrado, runCirculo];
-
+const runs = [ runTriangulo, runCuadrado, runHexagono, runCirculo];
 
 const colores: [number, number, number][] = [
-  [1.0, 0.3, 0.3],   // rojo
-  [0.3, 1.0, 0.4],   // verde
-  [0.4, 0.6, 1.0],   // azul
+  [1, 0, 0], // Rojo
+  [0, 1, 0], // Verde
+  [0, 0, 1]  // Azul
 ];
 
 const stage       = document.getElementById('estado')!;
