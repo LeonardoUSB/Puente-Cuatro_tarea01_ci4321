@@ -1,3 +1,4 @@
+import './style.css';
 import { run as runTriangulo } from './triangulo';
 import { run as runCuadrado }  from './cuadrado';
 import { run as runHexagono }  from './hexagono';
