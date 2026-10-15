@@ -1,3 +1,15 @@
 # Puente-Cuatro_tarea01_ci4321
-19-10181 Leonardo Dolande
-19-10109 Alejandro De Vincenzo
+
+-  Leonardo Dolande
+-  Alejandro De Vincenzo
+
+## Requisitos
+
+- Node.js 
+- npm
+
+## Cómo correr el proyecto
+
+```bash
+npm install
+npm run dev
